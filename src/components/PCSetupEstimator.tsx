@@ -63,9 +63,9 @@ const PCSetupEstimator = () => {
   }, [pcCount, options]);
 
   return (
-    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+    <div className="bg-white shadow-2xl rounded-lg overflow-hidden border border-gray-100">
       <Header />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 md:p-12">
         <ConfigurationPanel 
           pcCount={pcCount}
           setPcCount={setPcCount}

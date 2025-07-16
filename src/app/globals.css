@@ -2,7 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
 body {
-  background-color: #F8FAFC;
-  color: #1F2937;
+  font-family: 'Noto Sans JP', sans-serif;
+  line-height: 1.6;
+  background-color: #F8FAFC; /* Light Gray */
+  color: #1F2937; /* Dark Gray */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: #2563EB; /* Primary Blue */
+}
+
+.container {
+  max-width: 1200px;
 }

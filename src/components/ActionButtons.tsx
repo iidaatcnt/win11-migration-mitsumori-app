@@ -20,6 +20,7 @@ const ActionButtons = ({ companyInfo, validationErrors, validateCompanyInfo }: P
     if (input) {
       const canvas = await html2canvas(input, { scale: 2 });
       const imgData = canvas.toDataURL('image/png');
+
       const pdf = new jsPDF('p', 'mm', 'a4');
       const imgWidth = 210; // A4 width in mm
       const pageHeight = 297; // A4 height in mm
@@ -37,7 +38,9 @@ const ActionButtons = ({ companyInfo, validationErrors, validateCompanyInfo }: P
         heightLeft -= pageHeight;
       }
       pdf.save('見積書.pdf');
-    } else {
+      alert(`見積書PDFのダウンロードを開始しました。
+
+もしダウンロードが開始されない場合は、ブラウザのポップアップブロッカーをご確認ください。`);    } else {
       alert('PDF生成エラー: 見積もりコンテンツが見つかりません。');
     }
   };
@@ -46,7 +49,7 @@ const ActionButtons = ({ companyInfo, validationErrors, validateCompanyInfo }: P
     <div className="mt-6 text-center">
       <button 
         onClick={handlePdfGeneration}
-        className="w-full bg-green-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center"
+        className="w-full bg-green-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center transition duration-200 ease-in-out transform hover:scale-105"
       >
         <FileText className="w-5 h-5 mr-2" />
         見積書PDFをダウンロード

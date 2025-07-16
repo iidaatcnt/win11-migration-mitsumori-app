@@ -23,7 +23,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="container mx-auto p-4 md:p-8">
+    <main className="container mx-auto px-4 md:px-16 lg:px-32 py-8 md:py-12">
       <SwiperSlider images={images} />
       <PCSetupEstimator />
     </main>

@@ -1,8 +1,12 @@
 const Header = () => {
   return (
-    <header className="bg-blue-600 text-white p-6 text-center">
-      <h1 className="text-3xl font-bold">業者の半額で、プロの品質を。</h1>
-      <p className="mt-2">法人向けパソコンセットアップ、2台から出張対応</p>
+    <header className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 text-center shadow-lg">
+      <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-2">
+        業者の半額で、プロの品質を。
+      </h1>
+      <p className="text-xl md:text-2xl font-light opacity-90">
+        法人向けパソコンセットアップ、2台から出張対応
+      </p>
     </header>
   );
 };
