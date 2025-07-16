@@ -4,7 +4,7 @@ import { useState, useMemo } from 'react';
 import Header from './Header';
 import ConfigurationPanel from './ConfigurationPanel';
 import QuotePanel from './QuotePanel';
-import { CompanyInfo, Options } from '@/types';
+import { CompanyInfo, Options, ValidationErrors } from '@/types';
 
 const PCSetupEstimator = () => {
   const [pcCount, setPcCount] = useState(2);
@@ -20,6 +20,24 @@ const PCSetupEstimator = () => {
     email: '',
     phone: '',
   });
+  const [validationErrors, setValidationErrors] = useState<ValidationErrors>({});
+
+  const validateCompanyInfo = (): boolean => {
+    const errors: ValidationErrors = {};
+    if (!companyInfo.companyName) {
+      errors.companyName = '会社名は必須です。';
+    }
+    if (!companyInfo.contactName) {
+      errors.contactName = '担当者名は必須です。';
+    }
+    if (!companyInfo.email) {
+      errors.email = 'メールアドレスは必須です。';
+    } else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(companyInfo.email)) {
+      errors.email = '有効なメールアドレスを入力してください。';
+    }
+    setValidationErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
 
   const { subtotal, tax, total } = useMemo(() => {
     const baseServiceFee = 5000;
@@ -62,6 +80,8 @@ const PCSetupEstimator = () => {
           subtotal={subtotal}
           tax={tax}
           total={total}
+          validationErrors={validationErrors}
+          validateCompanyInfo={validateCompanyInfo}
         />
       </div>
     </div>

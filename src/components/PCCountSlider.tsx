@@ -13,7 +13,7 @@ const PCCountSlider = ({ pcCount, setPcCount }: Props) => {
         id="pc-count"
         type="range" 
         min="2" 
-        max="50" 
+        max="10" 
         value={pcCount} 
         onChange={(e) => setPcCount(Number(e.target.value))} 
         className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"

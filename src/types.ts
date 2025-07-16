@@ -11,3 +11,10 @@ export interface CompanyInfo {
   email: string;
   phone: string;
 }
+
+export interface ValidationErrors {
+  companyName?: string;
+  contactName?: string;
+  email?: string;
+  phone?: string;
+}
