@@ -4,11 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import Image from 'next/image';
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
 interface SwiperSliderProps {
   images: string[];
 }
@@ -28,16 +23,16 @@ const SwiperSlider: React.FC<SwiperSliderProps> = ({ images }) => {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper rounded-lg shadow-lg"
+        className="mySwiper rounded-lg shadow-lg aspect-10/7" // Swiperコンテナに高さを設定
       >
         {images.map((src, index) => (
-          <SwiperSlide key={index}>
-            <div className="relative w-full h-64 md:h-96">
+          <SwiperSlide key={index} className="h-full"> {/* SwiperSlideにも高さを設定 */}
+            <div className="relative w-full h-full">
               <Image
                 src={src}
                 alt={`Slide ${index + 1}`}
                 fill
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: 'contain' }}
                 priority={index === 0} // Load first image with high priority
               />
             </div>
