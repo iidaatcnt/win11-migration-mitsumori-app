@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Windows 11 移行支援 見積もりアプリ
 
-## Getting Started
+## 概要
 
-First, run the development server:
+このアプリケーションは、Windows 11への移行を検討している企業向けに、PCのセットアップやデータ移行にかかる費用の概算を見積もるためのツールです。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 主な機能
+
+*   **PCセットアップ見積もり:**
+    *   PCの台数に応じた基本料金の計算
+    *   データ移行、パスワード管理ツール導入、Google Workspace設定、メモリ増設などのオプション選択
+    *   選択したオプションに応じた追加料金の計算
+    *   消費税を含めた合計金額の自動算出
+*   **見積もり内容のPDF出力:**
+    *   会社名、担当者名、連絡先を入力
+    *   入力された情報と見積もり内容を記載したPDFを生成・ダウンロード
+
+## 使用技術
+
+*   **フレームワーク:** Next.js (React)
+*   **UIライブラリ:** Tailwind CSS
+*   **コンポーネント:**
+    *   Swiper (画像スライダー)
+    *   Lucide React (アイコン)
+*   **PDF生成:**
+    *   html2canvas
+    *   jsPDF
+
+## セットアップ手順
+
+1.  **リポジトリのクローン:**
+    ```bash
+    git clone https://github.com/iidaatcnt/win11-migration-mitsumori-app.git
+    ```
+2.  **ディレクトリの移動:**
+    ```bash
+    cd win11-migration-mitsumori-app
+    ```
+3.  **依存関係のインストール:**
+    ```bash
+    npm install
+    ```
+4.  **開発サーバーの起動:**
+    ```bash
+    npm run dev
+    ```
+5.  ブラウザで `http://localhost:3000` を開きます。
+
+## ディレクトリ構成
+
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+.
+├── public/ # 静的ファイル (画像など)
+├── src/
+│   ├── app/ # Next.jsのApp Router
+│   │   └── page.tsx # メインページ
+│   ├── components/ # Reactコンポーネント
+│   │   ├── PCSetupEstimator.tsx # 見積もり機能のメインコンポーネント
+│   │   ├── SwiperSlider.tsx # 画像スライダー
+│   │   ├── ... (その他UIコンポーネント)
+│   └── types/ # 型定義
+└── ... (設定ファイルなど)
+```
